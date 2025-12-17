@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P11</title>
+</head>
+<body>
+    <script>
+
+        let num = parseInt(prompt("Enter Number (Two Digit Long): "));
+        let multiplication = 1;
+        let second_number = parseInt(num % 10);
+        let first_number = parseInt(num / 10);
+
+
+        for(let i = 0; i < second_number; i++){
+            multiplication *= first_number;
+        }
+
+        document.write(`${first_number} ^ ${second_number} = ${multiplication}`);
+
+        document.write("<br />--- Done ---");
+
+    </script>
+</body>
+</html>

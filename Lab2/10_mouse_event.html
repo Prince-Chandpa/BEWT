@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="msg"> </h1>
+    <script>
+        msg = document.getElementById('msg')
+        document.addEventListener('mousedown',(e) => {
+            if(e.button == 2){
+                msg.innerHTML = 'Right Click'
+            }else if(e.button == 0){
+                msg.innerHTML = 'Left Click'
+            }
+            console.log(e.button)
+        })
+    </script>
+</body>
+</html>

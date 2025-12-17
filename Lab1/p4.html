@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4</title>
+</head>
+<body>
+    <script>
+        function fibonacci(n){
+            let sum = 0;
+            let a = 1;
+            let b = 0;
+
+            for(let i = 0; i < n; i++){
+                sum = a + b;
+                document.write(sum + ' ');
+                a = b;
+                b = sum;
+            }
+        }
+
+        let n = prompt("Enter Number: ");
+
+        fibonacci(n);
+
+    </script>
+</body>
+</html>

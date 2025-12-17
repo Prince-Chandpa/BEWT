@@ -1,0 +1,2 @@
+Hello
+Node Js Lab 6 Q-2.

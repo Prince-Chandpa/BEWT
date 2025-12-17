@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function first(a,b,callback){
+            document.write("This is First Function!!");
+            document.write("<br>a:",a,"<br>b:",b);
+            sum = a + b;
+            callback(sum);
+        }
+
+        function second(a){
+            document.write("<br>This is Second Function!!<br/> sum:",a);
+        }
+
+        let a = 10, b = 20;
+
+        first(a, b,second);
+
+    </script>
+</body>
+</html>

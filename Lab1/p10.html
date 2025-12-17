@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt("Enter Number: "));
+        let b = parseInt(prompt("Enter Number: "));
+        let ans, max;
+        if(a > b){
+            max = a;
+        }else{
+            max = b;
+        }
+        
+        for(let i = 1; i<max; i++){
+            if(a%i == 0 && b%i == 0){
+                ans = i;
+            }
+        }
+
+        document.write(ans+"<br />--- Done ---");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6</title>
+</head>
+<body>
+    <script>
+        function isArmstrong(n){
+            let num = n;
+            let sum = 0;
+            let digit = 0;
+
+            while(num != 0){
+                num = parseInt(num/10);
+                digit++;
+            }
+
+            num = n;
+
+            while(num != 0){
+                sum = sum + Math.pow(num%10,digit);
+                num = parseInt(num/10);
+            }
+
+            if(sum === n){
+                document.write(`${n} is Armstrong`); 
+            }else{
+                document.write(`${n} is not Armstrong`);
+            }
+        }
+
+        let n = parseInt(prompt("Enter Number: "));
+
+        isArmstrong(n);
+
+    </script>
+</body>
+</html>

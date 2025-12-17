@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [10,20,30,40]
+
+        let [x,y,z] = a
+
+        document.write("ARRAY:<br>x:",x,"<br>y:",y,"<br>z:",z)
+
+        let student = {name:'Prince', age:18, sem:4}
+
+        let {name,...stu} = student
+
+        document.write("<br><hr>Object:<br>name: ",name,", age: ",stu.age,", sem: ",stu.sem)
+    </script>
+</body>
+</html>

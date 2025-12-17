@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Select Roll Numbers:</h3>
+
+    <label><input type="checkbox" class="roll" value="101"> 101</label><br>
+    <label><input type="checkbox" class="roll" value="102"> 102</label><br>
+    <label><input type="checkbox" class="roll" value="103"> 103</label><br>
+    <label><input type="checkbox" class="roll" value="104"> 104</label><br>
+    <label><input type="checkbox" class="roll" value="105"> 105</label><br>
+    
+    <h3>Selected Roll Numbers (CSV):</h3>
+    <p id="result"></p>
+
+    <script>
+        const result = document.getElementById('result');
+        const checkbox = document.getElementsByClassName('roll');
+
+        for(let i = 0; i < checkbox.length; i++){
+            checkbox[i].addEventListener('change',() =>{
+                let checked_list = [];
+
+                for(let j = 0; j < checkbox.length; j++){
+                    if(checkbox[j].checked){
+                        checked_list.push(checkbox[j].value);
+                    }
+                }
+                
+                result.innerHTML = checked_list.join(', ');
+            })
+        }
+        
+
+    </script>
+</body>
+</html>

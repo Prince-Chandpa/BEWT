@@ -1,0 +1,17 @@
+{
+  "name": "npm-lab-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "lodash": "^4.17.21",
+    "react-router-dom": "^7.10.1"
+  }
+}
