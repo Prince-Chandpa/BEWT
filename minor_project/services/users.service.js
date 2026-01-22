@@ -1,4 +1,5 @@
-const { getAll, getByID, insert, update, deleteByID } = require("../models/users.model");
+const { getAll, getByID, insert, update, deleteByID, getByUserName } = require("../models/users.model");
+const jwt = require("jsonwebtoken");
 
 async function getAllUsers(){
     const data = await getAll();
@@ -28,6 +29,29 @@ async function getUserByID(id){
         return {
             error: true,
             message: "Some error occured while fetching the user !!"
+        };
+    }
+}
+
+async function checkLogin(formData){
+    const data = await getByUserName(formData.UserName); 
+    if(data){
+        if(data.Password === formData.Password){
+            const token = jwt.sign(data, process.env.PRIVATEKEY, { expiresIn: '1h' })
+            return {
+                error: false,
+                data: token,
+                message: "User loged in successfully"
+            };
+        }
+        return {
+            error: true,
+            message: "User Name or Password does not match !!"
+        };
+    }else{
+        return {
+            error: true,
+            message: "User Name or Password does not match !!"
         };
     }
 }
@@ -80,4 +104,4 @@ async function deleteUser(id){
     }
 }
 
-module.exports = {getAllUsers, getUserByID, insertUser, updateUser, deleteUser};
+module.exports = {getAllUsers, getUserByID, insertUser, updateUser, deleteUser, checkLogin};

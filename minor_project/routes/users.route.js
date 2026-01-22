@@ -1,7 +1,10 @@
 const express = require("express");
-const { getAllUsers, getUserByID, insertUser, updateUser, deleteUser } = require("../services/users.service");
+const { getAllUsers, getUserByID, insertUser, updateUser, deleteUser, checkLogin } = require("../services/users.service");
+const { authMiddleware } = require("../middlewares/auth.middleware");
 
 const routeUser = express.Router();
+
+routeUser.use(authMiddleware);
 
 //get all
 routeUser.get("/", async (req,res) => {
@@ -12,6 +15,12 @@ routeUser.get("/", async (req,res) => {
 //get by id
 routeUser.get("/:id", async (req,res) => {
     const data = await getUserByID(req.params.id);
+    res.send(data);
+});
+
+//login
+routeUser.post("/login", async (req,res) => {
+    const data = await checkLogin(req.body);
     res.send(data);
 });
 

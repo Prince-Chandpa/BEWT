@@ -18,6 +18,15 @@ async function getByID(id){
     }
 }
 
+async function getByUserName(userName){
+    try{
+        const [[data], fields] = await pool.query(`SELECT * FROM users WHERE UserName = '${userName}'`);
+        return data;
+    }catch(err){
+        return false;
+    }
+}
+
 async function insert(formData){
     try{
         const [data, fields] = await pool.query(`INSERT INTO users (UserID, UserName, Password) VALUES (NULL, '${formData.UserName}', '${formData.Password}');`);
@@ -45,4 +54,4 @@ async function deleteByID(id){
     }
 }
 
-module.exports = { getAll, getByID, insert, update, deleteByID };
+module.exports = { getAll, getByID, insert, update, deleteByID, getByUserName };
