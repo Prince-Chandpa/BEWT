@@ -18,11 +18,6 @@ routeMovie.get("/:id", async (req,res) => {
     res.send(data);
 });
 
-//login
-routeMovie.post("/login", async (req,res) => {
-    const data = await checkLogin(req.body);
-    res.send(data);
-});
 
 //insert
 routeMovie.post("/", async (req,res) => {

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { getAll, getByID, getByMovieName, insert, update, deleteByID } = require("../models/movies.model");
+const { getAll, getByID, insert, update, deleteByID } = require("../models/movies.model");
 
 async function getAllMovies(){
     const data = await getAll();
@@ -29,29 +29,6 @@ async function getMovieByID(id){
         return {
             error: true,
             message: "Some error occured while fetching the Movie !!"
-        };
-    }
-}
-
-async function checkLogin(formData){
-    const data = await getByMovieName(formData.MovieName); 
-    if(data){
-        if(data.Password === formData.Password){
-            const token = jwt.sign(data, process.env.PRIVATEKEY, { expiresIn: '1h' })
-            return {
-                error: false,
-                data: token,
-                message: "Movie loged in successfully"
-            };
-        }
-        return {
-            error: true,
-            message: "Movie Name or Movie Image does not match !!"
-        };
-    }else{
-        return {
-            error: true,
-            message: "Movie Name or Movie Image does not match !!"
         };
     }
 }
@@ -104,4 +81,4 @@ async function deleteMovie(id){
     }
 }
 
-module.exports = {getAllMovies, getMovieByID, insertMovie, updateMovie, deleteMovie, checkLogin};
+module.exports = {getAllMovies, getMovieByID, insertMovie, updateMovie, deleteMovie};
